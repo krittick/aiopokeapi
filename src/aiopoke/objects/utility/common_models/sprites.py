@@ -22,6 +22,7 @@ class Sprites:
     generation_6: Optional["GenerationVISprites"]
     generation_7: Optional["GenerationVIISprites"]
     generation_8: Optional["GenerationVIIISprites"]
+    artwork: OptionalSprite
 
     def __init__(self, data) -> None:
         self.back_default = Sprite.from_url(data["back_default"])
@@ -33,6 +34,7 @@ class Sprites:
         self.front_female = Sprite.from_url(data["front_female"])
         self.front_shiny = Sprite.from_url(data["front_shiny"])
         self.front_shiny_female = Sprite.from_url(data["front_shiny_female"])
+        self.artwork = Sprite.from_url(data["other"]["officla-artwork"]["front_default"])
         if data.get("versions") is not None:
             self.generation_i = self.generation_1 = GenerationISprites(
                 data["versions"]["generation-i"]
